@@ -7,7 +7,7 @@
  
 <body>
 
-<h2>Getting input</h2>
+<h2>Jameer shows tip amount</h2>
 <script> 
 
 
@@ -17,15 +17,23 @@ function tips(){
    console.log('base==>',base);
    console.log('tip==>>',tip);
    var myOutput = "";
-    myOutput ="Tip are: "+tip+"%"+(base*tip)/100+";";
+   var toShow="";
+    myOutput ="Tip are: "+tip+"% is"+(base*tip)/100+";";
     for(i=1;i<=4;i++){
         tip = tip+4;
         price = (base*tip)/100;
         console.log('price===>',price);
-        myOutput = myOutput + tip + "%" + price + ";" +"\n"
+       // myOutput = myOutput + tip + "%" + price + ";" +"\n"
+       toShow = toShow + tip + "% is" + price + ";"
+      // myOutput = toShow(myOutput, tip, price)
     }
+    myOutput = myOutput + toShow;
     document.getElementById("tipAmount").innerHTML = myOutput;
 }
+
+// function toShow(op, tp, pr){
+//     return op + tp + "%" + pr + ";"
+// }
 
 function chooseOp(){
     var base= parseInt(document.getElementById('amount').value);
@@ -49,15 +57,17 @@ function chooseOp(){
 
     document.getElementById("radiosection").innerHTML = ans;
 }
+
+
 </script>
 
     <label for="form1_age">Enter base amount </label>
-    <input type ="number" name="base" id="amount" value=30> <br>
+    <input type ="number" name="base" id="amount" value=50> <br>
 
     <label for="form1_age">Enter the tip percent </label>
     <input type ="number" name="tip" id="tip" value=15> <br>
 
-    <button onclick="tips()" value="Show tip">
+    <input type="button" onclick="tips()" value="Show tip">
 
     <p id="tipAmount">  
 
@@ -65,17 +75,14 @@ function chooseOp(){
 
 
     <form>
-        <input type="radio" id="rg1_red" name="color" value="+">
+        <input type="radio" id="rg1_red" name="color" value="sum">
         <label for="sum">sum</label></br>
       
-        <input type="radio" id="rg1_blue" name="color" value="-">
+        <input type="radio" id="rg1_blue" name="color" value="difference">
         <label for="diff">diff</label></br>
       
-        <input type="radio" id="rg1_green" name="color" value="*">
-        <label for="mult">Product</label></br>
-    
-        <input type="radio" id="rg1_orange" name="color" value="orange">
-        <label for="rg1_orange">Orange</label></br>
+        <input type="radio" id="rg1_green" name="color" value="product">
+        <label for="mult">mult</label></br>
     
         <input type="button" onclick="chooseOp()" value="Get values from radio group">
       </form>

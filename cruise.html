@@ -2,10 +2,12 @@
 <html>
 
 <head>
-    <title>Jameer goes on a cruise </title>
+    <title> Cruise </title>
 </head>
  
 <body>
+    <h2>Jameer goes on a cruise </h2>
+
     <script>
        let my_cruise = {};
        function selectCruise(){
@@ -15,9 +17,16 @@
         my_cruise.shared=sharescabin;
         my_cruise.breakfast=breakfast;
         my_cruise.pool=poolpass;
-//        my_cruise[shared]=sharescabin;
+//        my_cruise["shared"]=sharescabin;
+        document.getElementById("checksection").innerHTML = JSON.stringify(my_cruise);
+       }
 
-        document.getElementById("checksection").innerHTML = my_cruise;
+       function updateCruise(){
+        var days = document.getElementById('days').value;
+        var price = document.getElementById('cruiseprice').value;
+        my_cruise["days"]=days;
+        my_cruise["price"]=price;
+        document.getElementById("updatesection").innerHTML = JSON.stringify(my_cruise);
        }
     </script>
 
@@ -31,12 +40,26 @@
     <input type="checkbox" id="cb1_onion" name="topping3" value="False" checked>
     <label for="cb1_onion">Pool Pass</label></br>
 
-    <input type="button" onclick="resolveCheck()" value="Get values from check boxes">
-    <button onclick="selectCruise()" value="Select a cruise">
+    <input type="button" onclick="selectCruise()" value="Get values from check boxes">
+    <!-- <button onclick="selectCruise()" value="Select a cruise"> -->
 
   </form>
 
   <p id="checksection">
+
+  </p>
+
+  <form>
+    <label for="cb1_cheese">Enter the number of days</label></br>
+    <input type="text" id="days" name="topping1" value="days" checked> <br>
+
+    <label for="cb1_cheese">Enter price</label></br>
+    <input type="text" id="cruiseprice" name="topping1" value="True" checked><br>
+
+    <input type="button" onclick="updateCruise()" value="Update the cruise">
+  </form>
+
+  <p id="updatesection">
 
   </p>
 
