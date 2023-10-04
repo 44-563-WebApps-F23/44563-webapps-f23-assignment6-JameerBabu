@@ -75,16 +75,16 @@ function chooseOp(){
 
 
     <form>
-        <input type="radio" id="rg1_red" name="color" value="sum">
+        
+        <input type="radio" id="rg1_red" name="color" value="sum" onclick="chooseOp()">
         <label for="sum">sum</label></br>
       
-        <input type="radio" id="rg1_blue" name="color" value="difference">
+        <input type="radio" id="rg1_blue" name="color" value="difference" onclick="chooseOp()">
         <label for="diff">diff</label></br>
       
-        <input type="radio" id="rg1_green" name="color" value="product">
+        <input type="radio" id="rg1_green" name="color" value="product" onclick="chooseOp()">
         <label for="mult">mult</label></br>
-    
-        <input type="button" onclick="chooseOp()" value="Get values from radio group">
+
       </form>
 
       <p id="radiosection">This will be replaced</p>
